@@ -1,4 +1,6 @@
-class Task {
+import 'package:flutter/material.dart';
+
+class Task extends ChangeNotifier {
   final String name;
   bool isChecked;
 

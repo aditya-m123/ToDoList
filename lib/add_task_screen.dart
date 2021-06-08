@@ -7,11 +7,6 @@ class AddTask extends StatelessWidget {
   Task_Data tasklist = new Task_Data();
   @override
   Widget build(BuildContext context) {
-    onPressedHandler(String text_addtag) {
-      tasklist.addTask('adit');
-    }
-
-    ;
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -24,10 +19,6 @@ class AddTask extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Icon(
-              Icons.add_shopping_cart,
-              size: 10000,
-            ),
             Text('Add Task',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.lightBlueAccent, fontSize: 30)),

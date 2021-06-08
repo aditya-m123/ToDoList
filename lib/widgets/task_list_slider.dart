@@ -11,15 +11,34 @@ class TaskList extends StatelessWidget {
         itemBuilder: (context, index) {
           final task_number = taskData.tasks[index];
 
-          return TaskTile(
+          return Dismissible(
+            key: Key(Provider.of<Task_Data>(context).tasks[index].name),
+            background: Container(
+              padding: EdgeInsets.all(10.0),
+              color: Colors.red,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "DELETE",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            direction: DismissDirection.startToEnd,
+            onDismissed: (direction) {
+              deleteData(index, context);
+            },
+            child: TaskTile(
               textTitle: task_number.name,
               isChecked: task_number.isChecked,
-              longPressCallBack: () {
-                deleteData(index, context);
-              },
               checkboxCallback: (checkboxState) {
                 taskData.updateTask(task_number);
-              });
+              },
+              longPressCallBack: () {},
+            ),
+          );
         },
         itemCount: taskData.taskCount,
       );

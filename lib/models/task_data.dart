@@ -35,7 +35,6 @@ class Task_Data extends ChangeNotifier {
   }
 
   void deleteTask(int text) {
-    print('deleet called');
     _task.removeAt(text);
     notifyListeners();
   }
